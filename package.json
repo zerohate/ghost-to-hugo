@@ -1,0 +1,39 @@
+{
+  "name": "ghost-to-hugo",
+  "version": "1.0.0",
+  "description": "Convert Ghost blog export JSON to Hugo-compatible markdown files with metadata preservation",
+  "main": "index.js",
+  "bin": {
+    "ghost-to-hugo": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zerohate/ghost-to-hugo.git"
+  },
+  "keywords": [
+    "ghost",
+    "hugo",
+    "blog",
+    "markdown",
+    "static-site",
+    "converter",
+    "migration",
+    "export",
+    "tool"
+  ],
+  "author": "Teera Trongsakul",
+  "license": "MIT",
+  "dependencies": {
+    "h2m": "0.7.0",
+    "lodash": "4.17.21",
+    "yargs": "17.7.2"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zerohate/ghost-to-hugo/issues"
+  },
+  "homepage": "https://github.com/zerohate/ghost-to-hugo#readme"
+}
