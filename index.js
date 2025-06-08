@@ -173,10 +173,21 @@ async function main() {
 
   // Process each post
   let processedCount = 0;
+  const redirects = [];
   posts.forEach(post => {
     utils.processPost(post, postsTags, tagsMap, template, outputPath);
     processedCount++;
+    if (post.slug) {
+      redirects.push(`/${post.slug}/ /posts/${post.slug}/ 301`);
+    }
   });
+
+  // Write _redirects file
+  if (redirects.length > 0) {
+    const redirectsPath = path.join(outputPath, '_redirects');
+    fs.writeFileSync(redirectsPath, redirects.join('\n'), 'utf8');
+    console.log(`✓ Created: _redirects (${redirects.length} entries)`);
+  }
 
   console.log(`\n✨ Conversion complete!`);
   console.log(`📝 Processed ${processedCount} posts`);

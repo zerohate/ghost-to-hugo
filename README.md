@@ -13,6 +13,7 @@ A powerful tool to convert your [Ghost](https://github.com/TryGhost/Ghost) blog 
 - Creates Hugo-compatible frontmatter
 - Shows progress and summary of conversion
 - Handles special characters in titles and URLs
+- **NEW:** Generates a `_redirects` file for Netlify-style redirects from `/slug/` to `/posts/slug/` (301)
 
 ## Installation
 
@@ -72,6 +73,14 @@ The converter generates Hugo-compatible markdown files with:
 - Cleaned and properly formatted markdown content
 - Preserved image paths and references
 - Processed bookmark cards and embeds
+
+After conversion, a `_redirects` file will be created in your output directory. This file contains lines like:
+
+```
+/your-slug/ /posts/your-slug/ 301
+```
+
+You can use this file with Netlify or other static hosts that support the `_redirects` format to ensure old URLs redirect to the new Hugo post URLs.
 
 
 ## License
