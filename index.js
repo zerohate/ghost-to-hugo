@@ -160,9 +160,9 @@ async function main() {
   const data = utils.loadJsonFile(exportPath);
   const templateStr = fs.readFileSync(templatePath, 'utf8');
   const template = _.template(templateStr);
-
-  // Process data
-  const { posts_tags, tags, posts } = data.db[0].data;
+  
+  const ghostData = data.db ? data.db[0].data : data.data;
+  const { posts_tags, tags, posts } = ghostData;
   const postsTags = posts_tags.reduce((acc, { post_id, tag_id }) => {
     acc[post_id] = acc[post_id] || [];
     acc[post_id].push(tag_id);
